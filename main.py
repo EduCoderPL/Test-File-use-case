@@ -134,19 +134,45 @@ clock = pygame.time.Clock()
 player = Player(100, 200)
 
 listOfWalls = []
+# for i in range(10):
+#     rand_x = random.randint(0, 1000)
+#     rand_y = random.randint(0, 800)
 
-for i in range(10):
-    rand_x = random.randint(0, 1000)
-    rand_y = random.randint(0, 800)
+#     rand_width = random.randint(50, 400)
+#     rand_height = random.randint(50, 400)
+#     listOfWalls.append(Wall(rand_x, rand_y, rand_width, rand_height))
 
-    rand_width = random.randint(50, 400)
-    rand_height = random.randint(50, 400)
-    listOfWalls.append(Wall(rand_x, rand_y, rand_width, rand_height))
+tile_size = 60
+level = [
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 1, 0, 1, 1, 1, 0, 0, 1],
+    [1, 0, 1, 0, 1, 1, 1, 0, 0, 1],
+    [1, 0, 1, 0, 1, 1, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+]
+
+for y in range(len(level)):
+    for x in range(len(level[0])):
+        if level[y][x] == 1:
+            new_x = x * tile_size
+            new_y = y * tile_size
+            listOfWalls.append(Wall(new_x, new_y, tile_size, tile_size))
 
 offsetX = 0
 offsetY = 0
 
 #########################################################
+
+
+
+
+
+
+
+
+
 
 running = True
 while running:
